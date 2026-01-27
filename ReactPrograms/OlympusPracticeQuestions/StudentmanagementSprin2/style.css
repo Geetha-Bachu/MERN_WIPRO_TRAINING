@@ -1,0 +1,20 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;          /* Enable Flexbox */
+    flex-direction: column;
+    min-height: 100vh;      /* Full viewport height */
+}
+
+main {
+    flex: 1;               /* This pushes the footer down */
+}
+
+/* Optional spacing between flex items */
+.d-flex {
+    gap: 20px;
+}

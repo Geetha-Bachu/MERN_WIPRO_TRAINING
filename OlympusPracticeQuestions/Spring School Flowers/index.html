@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vidya Nikethanam - Student Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html, body { height:100%; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo { font-size:1.8rem; font-weight:bold; display:flex; align-items:center; gap:12px; }
+        .logo i { font-size:2.1rem; }
+
+        nav ul { display:flex; list-style:none; gap:2.5rem; }
+        nav a {
+            color:white;
+            text-decoration:none;
+            font-weight:500;
+            padding:8px 12px;
+            border-radius:6px;
+            transition:all 0.3s;
+            cursor:pointer;
+        }
+        nav a:hover, nav a.active { background-color:rgba(255,255,255,0.2); }
+
+        main {
+            max-width:1100px;
+            margin:40px auto;
+            padding:0 20px;
+            text-align:center;
+            flex:1 0 auto;
+        }
+
+        .welcome { margin:80px 0; }
+        .welcome h1 { color:#4e54c8; margin-bottom:16px; font-size:3.2rem; }
+        .welcome p { font-size:1.35rem; color:#555; }
+
+        .profile-card {
+            background:white;
+            border-radius:16px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.12);
+            overflow:hidden;
+            max-width:720px;
+            margin:20px auto;
+            opacity:0;
+            transform:translateY(20px);
+            transition:all 0.5s ease;
+            display:none;
+        }
+
+        .profile-card.visible {
+            opacity:1;
+            transform:translateY(0);
+            display:block;
+        }
+
+        .profile-header {
+            background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color:white;
+            padding:2.5rem 2rem;
+            text-align:center;
+        }
+
+        .profile-pic {
+            width:140px; height:140px;
+            border-radius:50%;
+            border:5px solid white;
+            object-fit:cover;
+            margin-bottom:1.2rem;
+            box-shadow:0 8px 25px rgba(0,0,0,0.25);
+        }
+
+        .profile-body { padding:2.5rem; }
+
+        .info-item {
+            display:flex;
+            margin-bottom:1.4rem;
+            font-size:1.1rem;
+        }
+
+        .info-label { font-weight:600; min-width:140px; color:#555; }
+        .info-value { flex:1; color:#222; }
+
+        footer {
+            text-align:center;
+            padding:2rem;
+            color:#666;
+            margin-top:2rem;
+            border-top:5px solid #ddd;
+            flex-shrink:0;
+        }
+
+        /* Center message when no content */
+        .empty-message {
+            margin: 120px 0;
+            font-size: 1.4rem;
+            color: #777;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-flower-tulip"></i>
+        Spring Flowers
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#" class="active" data-action="home">Home</a></li>
+                <li><a href="#" data-action="profile">Student Profile</a></li>
+                <li><a href="#" data-action="attendance">Attendance</a></li>
+                <li><a href="#" data-action="results">Results</a></li>
+                <li><a href="#" data-action="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Welcome Section -->
+        <section id="welcome-section" class="welcome">
+            <h1>Welcome to My Student Portal</h1>
+            <p>Managing my academic journey with ease</p>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile-section" class="profile-card">
+            <div class="profile-header">
+                <img src="MYpic.jpg" alt="Student Photo" class="profile-pic">
+                <h2>Geetha</h2>
+                <p>Roll No: 21781A0509 • Class: XII-A</p>
+            </div>
+
+            <div class="profile-body">
+                <div class="info-item"><span class="info-label">Full Name:</span><span class="info-value">Geetha</span></div>
+                <div class="info-item"><span class="info-label">Admission Number:</span><span class="info-value">21781A0509</span></div>
+                <div class="info-item"><span class="info-label">Gender:</span><span class="info-value">Female</span></div>
+                <div class="info-item"><span class="info-label">Grade:</span><span class="info-value">XII-A</span></div>
+                <div class="info-item"><span class="info-label">Father's Name:</span><span class="info-value">Mr.Bhaskar Reddy</span></div>
+                <div class="info-item"><span class="info-label">Date of Birth:</span><span class="info-value">15 August 2008</span></div>
+                <div class="info-item"><span class="info-label">Mobile:</span><span class="info-value">+91 9876543210</span></div>
+                <div class="info-item"><span class="info-label">Email:</span><span class="info-value">abcxyz@gmail.com</span></div>
+                <div class="info-item"><span class="info-label">Address:</span><span class="info-value">Jammalamadugu, Kadapa</span></div>
+            </div>
+        </section>
+
+        <!-- Placeholder for future pages -->
+        <div id="empty-placeholder" class="empty-message" style="display:none;">
+            <!-- This section is under development.<br>Coming soon! -->
+        </div>
+
+    </main>
+
+    <footer>
+        © 2026 Spring Flowers• All Rights Reserved<br>
+        Contact us: ayx@edu.info<br>
+        Facebook: facebook.com/vidyanikettanam
+    </footer> 
+
+    <script>
+        const sections = {
+            home: document.getElementById('welcome-section'),
+            profile: document.getElementById('profile-section'),
+            placeholder: document.getElementById('empty-placeholder')
+        };
+
+        function hideAll() {
+            Object.values(sections).forEach(el => {
+                el.style.display = 'none';
+                if (el.classList.contains('visible')) {
+                    el.classList.remove('visible');
+                }
+            });
+        }
+
+        function showSection(action) {
+            hideAll();
+
+            if (action === 'home') {
+                sections.home.style.display = 'block';
+            } 
+            else if (action === 'profile') {
+                sections.profile.style.display = 'block';
+                // Trigger animation
+                setTimeout(() => {
+                    sections.profile.classList.add('visible');
+                }, 10);
+            } 
+            else {
+                // Attendance, Results, Logout → show placeholder message
+                sections.placeholder.style.display = 'block';
+            }
+        }
+
+        // Click handlers
+        document.querySelectorAll('nav a[data-action]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const action = this.getAttribute('data-action');
+                showSection(action);
+
+                // Update active style
+                document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Start with home page
+        window.addEventListener('load', () => {
+            showSection('home');
+        });
+    </script>
+
+</body>
+</html>

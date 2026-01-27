@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Tech Conference",
+    "category": "Technology",
+    "date": "2026-02-01"
+  },
+  {
+    "id": 2,
+    "title": "Music Festival",
+    "category": "Music",
+    "date": "2026-02-05"
+  },
+  {
+    "id": 3,
+    "title": "Art Exhibition",
+    "category": "Art",
+    "date": "2026-01-30"
+  },
+  {
+    "id": 4,
+    "title": "Startup Meetup",
+    "category": "Technology",
+    "date": "2026-02-10"
+  }
+]

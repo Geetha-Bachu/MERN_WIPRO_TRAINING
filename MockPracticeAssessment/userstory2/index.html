@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Dashboard</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .event { border: 1px solid #ccc; padding: 10px; margin: 8px 0; }
+    select, input { margin: 5px; padding: 5px; }
+  </style>
+</head>
+<body>
+
+<h2>📅 Event Dashboard</h2>
+
+<select id="categoryFilter">
+  <option value="all">All Categories</option>
+  <option value="Technology">Technology</option>
+  <option value="Music">Music</option>
+  <option value="Art">Art</option>
+</select>
+
+<input type="date" id="dateFilter">
+
+<div id="eventsContainer"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-import Navbar from "./Navbar.jsx";
+
 
 function Header() {
   return (
@@ -15,8 +15,6 @@ function Header() {
         <h1 className="text-xl font-bold">Great Learning</h1>
       </div>
 
-      {/* Navbar */}
-      <Navbar />
     </header>
   );
 }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+</head>
+<body>
+  <h2>Admin Dashboard</h2>
+
+  <h3>Product List</h3>
+
+  <ul>
+    <% products.forEach(p => { %>
+      <li>
+        <%= p.name %> - <%= p.price %>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>

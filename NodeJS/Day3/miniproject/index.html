@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Node Mini App</title>
+</head>
+<body>
+
+<h2>Node.js Mini Backend Demo</h2>
+
+<button onclick="healthCheck()">Health Check</button>
+<button onclick="loginUser()">Login User</button>
+<button onclick="viewUsers()">View Users</button>
+
+<pre id="output"></pre>
+
+<script>
+  function healthCheck() {
+    fetch("/health")
+      .then(res => res.text())
+      .then(data => output(data));
+  }
+
+  function loginUser() {
+    fetch("/login?name=Rahul")
+      .then(res => res.text())
+      .then(data => output(data));
+  }
+
+  function viewUsers() {
+    fetch("/users")
+      .then(res => res.text())
+      .then(data => output(data));
+  }
+
+  function output(data) {
+    document.getElementById("output").innerText = data;
+  }
+</script>
+
+</body>
+</html>

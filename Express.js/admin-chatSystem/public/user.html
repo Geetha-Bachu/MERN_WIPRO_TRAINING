@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User Panel</title>
+</head>
+<body>
+<h2>User Messages</h2>
+<div id="messages"></div>
+<script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+<script>
+const socket = io("http://localhost:3000");
+
+// identify as user
+socket.emit("join","user");
+socket.on("receiveMessage",(msg)=>{
+  const p = document.createElement("p");
+  p.innerText = msg;
+  document.getElementById("messages").appendChild(p);
+
+});
+
+</script>
+</body>
+</html>

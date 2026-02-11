@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+</head>
+<body>
+
+<h2>Admin Chat</h2>
+
+<!-- MESSAGE SEND -->
+<input id="msg" placeholder="Enter message">
+<button onclick="sendMessage()">Send</button>
+<br><br>
+
+<!-- FILE UPLOAD -->
+<h3>Upload File</h3>
+<input type="file" id="fileInput">
+<button onclick="uploadFile()">Upload</button>
+<script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+<script>
+const socket = io("http://localhost:3000");
+
+// identify as admin
+socket.emit("join","admin");
+
+//SEND MESSAGE 
+function sendMessage(){
+  const message = document.getElementById("msg").value;
+  socket.emit("sendMessage", message);
+}
+
+//FILE UPLOAD
+async function uploadFile(){
+  const file = document.getElementById("fileInput").files[0];
+  const formData = new FormData();
+  formData.append("file", file);
+  await fetch("/upload", {
+    method: "POST",
+    headers: {
+      role: "admin" // required for admin check
+    },
+    body: formData
+  });
+
+  alert("File uploaded!");
+
+}
+</script>
+
+</body>
+</html>

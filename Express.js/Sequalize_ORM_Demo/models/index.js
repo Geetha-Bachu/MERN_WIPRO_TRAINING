@@ -1,0 +1,14 @@
+const sequelize =require("../db/connection.js");
+const Course = require("./Course.js");
+const Instructor = require("./Instructor.js");
+const Enrollment = require("./Enrollment.js");
+const Studentss = require("./Studentss.js");
+Instructor.hasMany(Course,{
+    foreignKey:"instructorId",onDelete:"CASCADE"
+})
+Course.belongsTo(Instructor,{
+    foreignKey:"instructorId"
+})
+Studentss.belongsToMany(Course,{through:Enrollment})
+Course.belongsToMany(Studentss,{through:Enrollment})
+module.exports={sequelize,Course,Instructor,Studentss,Enrollment};
